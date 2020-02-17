@@ -1,8 +1,7 @@
 package fi.academy.springdatajdbcharkka;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,6 +18,16 @@ public class MaaController {
         return dao.haeMaatTietokannasta();
     }
 
-    @Autowired MaaDAO dao;
+    @GetMapping("api/maahaku")
+    public Maa restMetodiFind(@RequestParam(name="name", required = true) String hakusana) {
+        List<Maa> lista = dao.haeMaatTietokannasta();
+        for (Maa maa: lista) {
+            if (maa.getName().equalsIgnoreCase(hakusana)) {
+                return maa;
+            }
+        }
+        return null;
+    }
 
+    @Autowired MaaDAO dao;
 }
