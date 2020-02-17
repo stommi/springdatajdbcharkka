@@ -29,7 +29,7 @@ public class MaaDAO {
 
     public List<Maa> haeMaatTietokannasta() {
         loki.info("Täällä ollaan");
-        List<Maa> maat = jdbcPohja.query("SELECT country.name, city.name as capital, country.continent, country.region, country.population FROM city JOIN country ON city.id = country.capital;", (tulosjoukko, indeksi) -> {
+        List<Maa> maat = jdbcPohja.query("SELECT country.name, city.name as capital, country.continent, country.region, country.population FROM city JOIN country ON city.id = country.capital ORDER BY country.name;", (tulosjoukko, indeksi) -> {
                     Maa maa = new Maa(
                             tulosjoukko.getString("name"),
                             tulosjoukko.getString("capital"),
