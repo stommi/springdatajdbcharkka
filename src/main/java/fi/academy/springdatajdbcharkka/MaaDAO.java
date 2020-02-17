@@ -6,10 +6,12 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Component
 @Repository
 public class MaaDAO {
+    private Logger loki = Logger.getLogger(getClass().getName());
     private List<Maa> maat;
 
 
@@ -26,6 +28,7 @@ public class MaaDAO {
     }
 
     public List<Maa> haeMaatTietokannasta() {
+        loki.info("Täällä ollaan");
         List<Maa> maat = jdbcPohja.query("select name, continent, region, population from country", (tulosjoukko, indeksi) -> {
                     Maa maa = new Maa(
                             tulosjoukko.getString("name"),
