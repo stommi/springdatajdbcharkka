@@ -2,8 +2,6 @@ package fi.academy.springdatajdbcharkka;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,23 +19,6 @@ public class MaaController {
         return dao.haeMaatTietokannasta();
     }
 
-
-
     @Autowired MaaDAO dao;
-
-
-
-
-
-
-
-//    @RequestMapping(value = "/maat", method = RequestMethod.GET)
-//    public List<String> restMetodiGetmaat() {
-//        return maaDAO.getMaat();
-//    }
-
-
-
-
 
 }
