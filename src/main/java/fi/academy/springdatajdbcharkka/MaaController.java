@@ -19,7 +19,7 @@ public class MaaController {
     }
 
     @GetMapping("api/maahaku")
-    public Maa restMetodiFind(@RequestParam(name="name", required = true) String hakusana) {
+    public Maa restMetodiFind(@RequestParam(name="name", required = false) String hakusana) {
         List<Maa> lista = dao.haeMaatTietokannasta();
         for (Maa maa: lista) {
             if (maa.getName().equalsIgnoreCase(hakusana)) {
