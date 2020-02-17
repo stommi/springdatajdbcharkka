@@ -29,5 +29,10 @@ public class MaaController {
         return null;
     }
 
+    @PostMapping("api/maatLisays")
+    public void restMetodiPost(@RequestBody Maa maa) {
+        dao.lisaaMaa(maa);
+    }
+
     @Autowired MaaDAO dao;
 }

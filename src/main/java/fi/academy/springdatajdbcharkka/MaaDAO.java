@@ -43,6 +43,11 @@ public class MaaDAO {
         return maat;
     }
 
+    public int lisaaMaa(Maa maa) {
+        return jdbcPohja.update("INSERT INTO country (code, name, continent, region, surfacearea, population, localname, governmentform, code2) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                new Object[] { maa.getCode(), maa.getName(), maa.getContinent(), maa.getRegion(), maa.getSurfacearea(), maa.getPopulation(), maa.getLocalname(), maa.getGovernmentform(), maa.getCode2() });
+    }
+
         @Autowired
         JdbcTemplate jdbcPohja;
 
