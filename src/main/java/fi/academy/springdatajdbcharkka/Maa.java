@@ -2,18 +2,26 @@ package fi.academy.springdatajdbcharkka;
 
 public class Maa {
     private String name;
-    private String city;
+    private String capital;
     private String continent;
     private String region;
     private int population;
 
-    public Maa(String name, String city, String continent, String region, int population) {
+    public Maa(String name, String capital, String continent, String region, int population) {
         this.name = name;
-        this.city = city;
+        this.capital = capital;
         this.continent = continent;
         this.region = region;
         this.population = population;
     }
+
+    public Maa(String name, String continent, String region, int population) {
+        this.name = name;
+        this.continent = continent;
+        this.region = region;
+        this.population = population;
+    }
+
 
     public String getName() {
         return name;
@@ -47,19 +55,19 @@ public class Maa {
         this.population = population;
     }
 
-    public String getcity() {
-        return city;
+    public String getcapital() {
+        return capital;
     }
 
-    public void setcity(String city) {
-        this.city = city;
+    public void setcapital(String capital) {
+        this.capital = capital;
     }
 
     @Override
     public String toString() {
         return "Maa{" +
                 "name='" + name + '\'' +
-                ", city='" + city + '\'' +
+                ", capital='" + capital + '\'' +
                 ", continent='" + continent + '\'' +
                 ", region='" + region + '\'' +
                 ", population=" + population +

@@ -29,10 +29,10 @@ public class MaaDAO {
 
     public List<Maa> haeMaatTietokannasta() {
         loki.info("Täällä ollaan");
-        List<Maa> maat = jdbcPohja.query("SELECT country.name, city.name as city, country.continent, country.region, country.population FROM city JOIN country ON city.country_code = country.code", (tulosjoukko, indeksi) -> {
+        List<Maa> maat = jdbcPohja.query("SELECT country.name, city.name as capital, country.continent, country.region, country.population FROM city JOIN country ON city.id = country.capital;", (tulosjoukko, indeksi) -> {
                     Maa maa = new Maa(
                             tulosjoukko.getString("name"),
-                            tulosjoukko.getString("city"),
+                            tulosjoukko.getString("capital"),
                             tulosjoukko.getString("continent"),
                             tulosjoukko.getString("region"),
                             tulosjoukko.getInt("population"));
